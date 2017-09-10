@@ -7,4 +7,4 @@
     其他命名，请跟进C#语言命名规则。
     如有bug，请提交710605420@qq.com邮箱。
 	
-	![image](https://github.com/hanbim520/Unity3dAutoGenerateCodeForNode/tree/master/Image/1.jpg)
+	![image](https://github.com/hanbim520/Unity3dAutoGenerateCodeForNode/raw/master/Image/1.jpg)
