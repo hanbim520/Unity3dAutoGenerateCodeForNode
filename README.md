@@ -9,45 +9,5 @@
 	
 ![image](https://github.com/hanbim520/Unity3dAutoGenerateCodeForNode/raw/master/Image/1.jpg)
 ![image](https://github.com/hanbim520/Unity3dAutoGenerateCodeForNode/raw/master/Image/2.jpg)
-
-ImageRoot.cs:
-
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
-
-
-public class ImageRoot : MonoBehaviour
-{	
-	[HideInInspector]private Image @Image01 = null;
-	[HideInInspector]private Image @IMAGEYYIGI = null;
-	[HideInInspector]private Image @image = null;
-	[HideInInspector]private Text @TextName = null;
-	private void InitUI()
-	{		
-		 @Image01 = transform.Find("Image0/@Image01/").GetComponent<Image>();
-		 @IMAGEYYIGI = transform.Find("Image0/@Image01/@IMAGEYYIGI/").GetComponent<Image>();
-		 @image = transform.Find("Image0/@Image01/@image/").GetComponent<Image>();
-		 @TextName = transform.Find("Image0/@TextName/").GetComponent<Text>(); 
-
-	}
-}
-
-Image10.cs :
-
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
-
-
-public class Image10 : MonoBehaviour
-{	
-	[HideInInspector]private Button @Button100 = null;
-	private void InitUI()
-	{		
-		 @Button100 = transform.Find("@Button100/").GetComponent<Button>();
-
-	}
-}
+![image](https://github.com/hanbim520/Unity3dAutoGenerateCodeForNode/raw/master/Image/3.jpg)
+![image](https://github.com/hanbim520/Unity3dAutoGenerateCodeForNode/raw/master/Image/4.jpg)
