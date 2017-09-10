@@ -6,14 +6,16 @@ using UnityEngine.UI;
 
 public class ImageRoot : MonoBehaviour
 {	
-	[SerializeField]private Image Image01 = null;
-	[SerializeField]private Image IMAGEYYIGI = null;
-	[SerializeField]private Image imageText = null;
+	[HideInInspector]private Image @Image01 = null;
+	[HideInInspector]private Image @IMAGEYYIGI = null;
+	[HideInInspector]private Image @image = null;
+	[HideInInspector]private Text @TextName = null;
 	private void InitUI()
 	{		
-		 Image01 = transform.Find("ImageRoot/Image0/Image01/").GetComponent<Image>();
-		 IMAGEYYIGI = transform.Find("ImageRoot/Image0/Image01/IMAGEYYIGI/").GetComponent<Image>();
-		 imageText = transform.Find("ImageRoot/Image0/Image01/imageText/").GetComponent<Image>();
+		 @Image01 = transform.Find("Image0/@Image01/").GetComponent<Image>();
+		 @IMAGEYYIGI = transform.Find("Image0/@Image01/@IMAGEYYIGI/").GetComponent<Image>();
+		 @image = transform.Find("Image0/@Image01/@image/").GetComponent<Image>();
+		 @TextName = transform.Find("Image0/@TextName/").GetComponent<Text>(); 
 
 	}
 }
