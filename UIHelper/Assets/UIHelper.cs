@@ -71,6 +71,8 @@ public class UIHelper : MonoBehaviour
         TypeList.Add(UIType.ObjectType.Anchor);
         TypeList.Add(UIType.ObjectType.InputField);
         TypeList.Add(UIType.ObjectType.Slider);
+        TypeList.Add(UIType.ObjectType.Widget);
+        TypeList.Add(UIType.ObjectType.ScrollBar);
 
         string selfName = transform.name;
 		MatchCollection m = Regex.Matches(selfName,flag,RegexOptions.IgnoreCase);
@@ -485,6 +487,34 @@ public class UIHelper : MonoBehaviour
                 }
                 break;
             }
+            case UIType.ObjectType.Widget:
+                {
+                    if (NGUI)
+                    {
+                        defineAreas.Add(DefineArea("UIWidget", uiName));
+                        defineFinds.Add(DefineFind(uiName, uiPath, "UIWidget"));
+                    }
+                    else
+                    {
+//                         defineAreas.Add(DefineArea("Slider", uiName));
+//                         defineFinds.Add(DefineFind(uiName, uiPath, "Slider"));
+                    }
+                    break;
+                }
+            case UIType.ObjectType.ScrollBar:
+                {
+                    if (NGUI)
+                    {
+                        defineAreas.Add(DefineArea("UIScrollBar", uiName));
+                        defineFinds.Add(DefineFind(uiName, uiPath, "UIScrollBar"));
+                    }
+                    else
+                    {
+                        defineAreas.Add(DefineArea("ScrollBar", uiName));
+                        defineFinds.Add(DefineFind(uiName, uiPath, "ScrollBar"));
+                    }
+                    break;
+                }
             default:
 			break;
 		}
@@ -660,6 +690,8 @@ namespace UIType
         public const string UI2DSprite = "ui2dsprite";
         public const string InputField = "inputfield";
         public const string Slider = "slider";
+        public const string Widget = "widget";
+        public const string ScrollBar = "scrollbar";
     }
 }
 
