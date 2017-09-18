@@ -16,6 +16,8 @@ public class UIRootTest : WindowBase
 	[HideInInspector]private UIPanel m_Paneltest = null;
 	[HideInInspector]private UITable m_uitableTest = null;
 	[HideInInspector]private GameObject m_GameObjectTest = null;
+	[HideInInspector]private UIScrollView m_scrollViewList = null;
+	[HideInInspector]private Transform m_TransformTest = null;
 
 	#endregion
 
@@ -31,7 +33,9 @@ public class UIRootTest : WindowBase
 		m_AnchorTest = transform.Find("Container/@AnchorTest").GetComponent<UIAnchor>(); 
 		m_Paneltest = transform.Find("@Paneltest").GetComponent<UIPanel>(); 
 		m_uitableTest = transform.Find("@uitableTest").GetComponent<UITable>(); 
-		m_GameObjectTest = transform.Find("@GameObjectTest").GetComponent<GameObject>(); 
+		m_GameObjectTest = transform.Find("@GameObjectTest").gameObject; 
+		m_scrollViewList = transform.Find("@scrollViewList").GetComponent<UIScrollView>(); 
+		m_TransformTest = transform.Find("@TransformTest"); 
 
 	}
 	#endregion

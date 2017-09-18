@@ -155,7 +155,14 @@ public class UIHelper : MonoBehaviour
 
     string DefineFind(string param,string path, string type)
     {
-        return string.Format("\t\t{0}{1} = transform.Find({2}).GetComponent<{3}>(); \n", "m_", param, "\"" + path + "\"", type);
+        if (type == "GameObject")
+            return string.Format("\t\t{0}{1} = transform.Find({2}).gameObject; \n", "m_", param, "\"" + path + "\"");
+        else if (type == "Transform")
+        {
+            return string.Format("\t\t{0}{1} = transform.Find({2}); \n", "m_", param, "\"" + path + "\"");
+        }
+        else
+            return string.Format("\t\t{0}{1} = transform.Find({2}).GetComponent<{3}>(); \n", "m_", param, "\"" + path + "\"", type);
     }
     private void Serialized(string uiName, string path, string ty)
 	{
@@ -390,6 +397,7 @@ public class UIHelper : MonoBehaviour
 			{
                     defineAreas.Add(DefineArea("Transform", uiName));
                     defineFinds.Add(DefineFind(uiName, uiPath, "Transform"));
+                    
                     break;
 			}
         case UIType.ObjectType.Camera:
