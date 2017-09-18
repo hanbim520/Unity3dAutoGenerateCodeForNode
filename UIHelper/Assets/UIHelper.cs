@@ -149,12 +149,12 @@ public class UIHelper : MonoBehaviour
    
    string DefineArea (string type, string param)
    {
-       return string.Format("\t[HideInInspector]private {0} @{1} = null;\n", type, param);
+       return string.Format("\t[HideInInspector]private {0} @{1}{2} = null;\n", type,"m_", param);
    }
 
     string DefineFind(string param,string path, string type)
     {
-        return string.Format("\t\t@{0} = transform.Find({1}).GetComponent<{2}>(); \n", param, "\"" + path + "\"", type);
+        return string.Format("\t\t@{0}{1} = transform.Find({2}).GetComponent<{3}>(); \n", "m_", param, "\"" + path + "\"", type);
     }
     private void Serialized(string uiName, string path, string ty)
 	{
