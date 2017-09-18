@@ -423,7 +423,7 @@ public class UIHelper : MonoBehaviour
         bodyStr += "\n\t#endregion\n";
         /*----------------override init end----------------*/
 
-        // the following code can be delete
+        // the following code can be deleted
         /*----------------override open----------------*/
         bodyStr += "\n\t#region Open \n";
         func = "\tpublic override void Open()\n\t{\t\t\n\t\tbase.Open();\n";
