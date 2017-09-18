@@ -4,15 +4,30 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
-public class Image10 : MonoBehaviour
+public class Image10 : WindowBase
 {	
-	#region Init
+	#region Define 
+
 	[HideInInspector]private Button @Button100 = null;
 
-	private void InitUI()
+	#endregion
+
+	#region Init 
+	public override void Init()
 	{		
-		 @Button100 = transform.Find("@Button100/").GetComponent<Button>(); 
+		base.Init();
+
+		@Button100 = transform.Find("@Button100/").GetComponent<Button>(); 
 
 	}
 	#endregion
+
+	#region Open 
+	public override void Open()
+	{		
+		base.Open();
+
+	}
+	#endregion
+
 }

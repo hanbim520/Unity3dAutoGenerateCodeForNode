@@ -29,7 +29,7 @@ public class UIHelper : MonoBehaviour
 	[SerializeField]
 	public string className = ""; //default transform.name;
     [SerializeField]
-    public string parentName = "MonoBehaviour";
+    public string parentName = "WindowBase";
     [SerializeField]
     bool NGUI = false;
 
@@ -140,7 +140,7 @@ public class UIHelper : MonoBehaviour
 
     string DefineFind(string param,string path, string type)
     {
-        return string.Format("\t\t @{0} = transform.Find({1}).GetComponent<{2}>(); \n", param, "\"" + path + "\"", type);
+        return string.Format("\t\t@{0} = transform.Find({1}).GetComponent<{2}>(); \n", param, "\"" + path + "\"", type);
     }
     private void Serialized(string uiName, string path, string ty)
 	{
@@ -398,19 +398,42 @@ public class UIHelper : MonoBehaviour
 			}
 
 		}
-        bodyStr += "\n\t#region Init";
-        
-        string func = "\tprivate void InitUI()\n\t{\t\t";
+
+
+        /*----------------override define----------------*/
+
+
+        bodyStr += "\n\t#region Define \n";
         foreach (var v in defineAreas)
         {
             bodyStr += v;
         }
-        bodyStr += "\n";
+        bodyStr += "\n\t#endregion\n";
+        /*----------------override define end----------------*/
+
+
+
+        /*----------------override init----------------*/
+        bodyStr += "\n\t#region Init \n";
+        string func = "\tpublic override void Init()\n\t{\t\t\n\t\tbase.Init();\n";
         bodyStr += func;
         foreach (var v in defineFinds)
             bodyStr += string.Format("{0}", v);
         bodyStr +=  "\n\t}";
-        bodyStr += "\n\t#endregion";
+        bodyStr += "\n\t#endregion\n";
+        /*----------------override init end----------------*/
+
+
+        /*----------------override open----------------*/
+        bodyStr += "\n\t#region Open \n";
+        func = "\tpublic override void Open()\n\t{\t\t\n\t\tbase.Open();\n";
+        bodyStr += func;
+        
+        bodyStr += "\n\t}";
+        bodyStr += "\n\t#endregion\n";
+        /*----------------override Open end----------------*/
+
+
         //引用
         string usingStr = "using System.Collections;\nusing System.Collections.Generic;\nusing UnityEngine;\nusing UnityEngine.UI;\n\n\n";
 
