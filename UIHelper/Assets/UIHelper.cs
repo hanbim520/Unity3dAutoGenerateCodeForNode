@@ -423,7 +423,7 @@ public class UIHelper : MonoBehaviour
         bodyStr += "\n\t#endregion\n";
         /*----------------override init end----------------*/
 
-
+        // the following code can be delete
         /*----------------override open----------------*/
         bodyStr += "\n\t#region Open \n";
         func = "\tpublic override void Open()\n\t{\t\t\n\t\tbase.Open();\n";
@@ -432,6 +432,43 @@ public class UIHelper : MonoBehaviour
         bodyStr += "\n\t}";
         bodyStr += "\n\t#endregion\n";
         /*----------------override Open end----------------*/
+
+        /*----------------override Close----------------*/
+        bodyStr += "\n\t#region Close \n";
+        func = "\tpublic override void Close()\n\t{\t\t\n\t\tbase.Close();\n";
+        bodyStr += func;
+
+        bodyStr += "\n\t}";
+        bodyStr += "\n\t#endregion\n";
+        /*----------------override Close end----------------*/
+
+        /*----------------override Hide----------------*/
+        bodyStr += "\n\t#region Hide \n";
+        func = "\tpublic override void Hide()\n\t{\t\t\n\t\tbase.Hide();\n";
+        bodyStr += func;
+
+        bodyStr += "\n\t}";
+        bodyStr += "\n\t#endregion\n";
+        /*----------------override Hide end----------------*/
+
+
+        /*----------------override Destroy----------------*/
+        bodyStr += "\n\t#region Destroy \n";
+        func = "\tpublic override void Destroy()\n\t{\t\t\n\t\tbase.Destroy();\n";
+        bodyStr += func;
+
+        bodyStr += "\n\t}";
+        bodyStr += "\n\t#endregion\n";
+        /*----------------override Destroy end----------------*/
+
+        /*----------------override Refresh----------------*/
+        bodyStr += "\n\t#region Refresh \n";
+        func = "\tpublic override void Refresh()\n\t{\t\t\n\t\tbase.Refresh();\n";
+        bodyStr += func;
+
+        bodyStr += "\n\t}";
+        bodyStr += "\n\t#endregion\n";
+        /*----------------override Refresh end----------------*/
 
 
         //引用

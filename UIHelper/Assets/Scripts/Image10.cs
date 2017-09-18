@@ -30,4 +30,36 @@ public class Image10 : WindowBase
 	}
 	#endregion
 
+	#region Close 
+	public override void Close()
+	{		
+		base.Close();
+
+	}
+	#endregion
+
+	#region Hide 
+	public override void Hide()
+	{		
+		base.Hide();
+
+	}
+	#endregion
+
+	#region Destroy 
+	public override void Destroy()
+	{		
+		base.Destroy();
+
+	}
+	#endregion
+
+	#region Refresh 
+	public override void Refresh()
+	{		
+		base.Refresh();
+
+	}
+	#endregion
+
 }

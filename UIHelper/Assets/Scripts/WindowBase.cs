@@ -10,5 +10,15 @@ public class WindowBase : MonoBehaviour, IWindowAPI
     public virtual void Close() { }
     public virtual void Hide() { }
     public virtual void Destroy() { }
-    public virtual void Refresh() { }    
+    public virtual void Refresh() { }
+
+    private void Start()
+    {
+        this.Init();
+    }
+
+    private void OnDestroy()
+    {
+        this.Destroy();
+    }
 }
