@@ -93,6 +93,11 @@ public class UIHelper : MonoBehaviour
 		if (m.Count > 0) {
 			string objName = System.Text.RegularExpressions.Regex.Replace(objectName,flag,"");
 //			string objPath = System.Text.RegularExpressions.Regex.Replace(objectPath,flag,"");
+            if(generateUIComponentDic.ContainsKey(objName))
+            {
+                Debug.LogError(string.Format("{objName} is repeated!!! generate code failed."));
+                return;
+            }
 			generateUIComponentDic.Add (objName, objectPath);
 		}
 	}
@@ -109,7 +114,7 @@ public class UIHelper : MonoBehaviour
             {
                 objectPath = preT.name + "/" + objectPath;
             }
-            Debug.Log(objectPath );
+            //Debug.Log(objectPath );
             Transform lastPre =  preTrans.Pop();
 			ColloctObjec (lastPre);
 
@@ -121,7 +126,7 @@ public class UIHelper : MonoBehaviour
             {
                 objectPath = preT.name + "/" + objectPath;
             }
-            Debug.Log(objectPath );
+           // Debug.Log(objectPath );
 			Transform lastPre =  preTrans.Peek();
 			ColloctObjec (lastPre);
         }
@@ -570,6 +575,8 @@ public class UIHelper : MonoBehaviour
 		//关闭流
 		sw.Close();
 		fs.Close();
+
+        Debug.Log("Code generation successful")
 	}
 }
 
