@@ -14,9 +14,9 @@ public class ImageRoot : MonoBehaviour
 
 	private void InitUI()
 	{		
-		 @Image01 = transform.Find("Image0/@Image01/").GetComponent<Image>();
-		 @IMAGEYYIGI = transform.Find("Image0/@Image01/@IMAGEYYIGI/").GetComponent<Image>();
-		 @image = transform.Find("Image0/@Image01/@image/").GetComponent<Image>();
+		 @Image01 = transform.Find("Image0/@Image01/").GetComponent<Image>(); 
+		 @IMAGEYYIGI = transform.Find("Image0/@Image01/@IMAGEYYIGI/").GetComponent<Image>(); 
+		 @image = transform.Find("Image0/@Image01/@image/").GetComponent<Image>(); 
 		 @TextName = transform.Find("Image0/@TextName/").GetComponent<Text>(); 
 
 	}

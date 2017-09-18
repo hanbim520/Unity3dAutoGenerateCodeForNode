@@ -11,7 +11,7 @@ public class Image10 : MonoBehaviour
 
 	private void InitUI()
 	{		
-		 @Button100 = transform.Find("@Button100/").GetComponent<Button>();
+		 @Button100 = transform.Find("@Button100/").GetComponent<Button>(); 
 
 	}
 	#endregion

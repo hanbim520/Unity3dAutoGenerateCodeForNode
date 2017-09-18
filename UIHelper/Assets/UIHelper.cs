@@ -30,9 +30,11 @@ public class UIHelper : MonoBehaviour
 	public string className = ""; //default transform.name;
     [SerializeField]
     public string parentName = "MonoBehaviour";
+    [SerializeField]
+    bool NGUI = false;
 
-//     private string defineArea = "\n";
-//     private string defineFind = "\n";
+    //     private string defineArea = "\n";
+    //     private string defineFind = "\n";
 
     private List<string> defineAreas = new List<string>();
     private List<string> defineFinds = new List<string>();
@@ -130,7 +132,17 @@ public class UIHelper : MonoBehaviour
         }
     }
 
-	private void Serizerize(string uiName, string path, string ty)
+   
+   string DefineArea (string type, string param)
+   {
+       return string.Format("\t[HideInInspector]private {0} @{1} = null;\n", type, param);
+   }
+
+    string DefineFind(string param,string path, string type)
+    {
+        return string.Format("\t\t @{0} = transform.Find({1}).GetComponent<{2}>(); \n", param, "\"" + path + "\"", type);
+    }
+    private void Serizerize(string uiName, string path, string ty)
 	{
         int idx = path.IndexOf("/");
         string uiPath = path.Substring(idx + 1, path.Length - idx -1);
@@ -141,129 +153,226 @@ public class UIHelper : MonoBehaviour
 		switch (m[0].Value.ToLower()) {
 		case ObjectType.AudioSettings:
 			{
-                    defineAreas.Add(string.Format ("\t[HideInInspector]private AudioSettings @{0} = null;\n", uiName));
-                    defineFinds.Add(string.Format("\t\t @{0} = transform.Find({1}).GetComponent<AudioSettings>(); \n", uiName, "\"" + uiPath + "\""));
+                    if(NGUI)
+                    {
+                        defineAreas.Add(DefineArea("AudioSettings", uiName));
+                        defineFinds.Add(DefineFind(uiName,uiPath, "AudioSettings"));
+                    }
+                    else
+                    {
+                        defineAreas.Add(DefineArea("AudioSettings", uiName));
+                        defineFinds.Add(DefineFind(uiName, uiPath, "AudioSettings"));
+                    }
+                    
 
                 break;
 			}
         case ObjectType.Text:
             {
-                    defineAreas.Add(string.Format("\t[HideInInspector]private Text @{0} = null;\n", uiName));
-                    defineFinds.Add(string.Format("\t\t @{0} = transform.Find({1}).GetComponent<Text>(); \n", uiName, "\"" + uiPath + "\""));
-                break;
+                    if (NGUI)
+                    {
+                        defineAreas.Add(DefineArea("UIText", uiName));
+                        defineFinds.Add(DefineFind(uiName, uiPath, "UIText"));
+                    }
+                    else
+                    {
+                        defineAreas.Add(DefineArea("Text", uiName));
+                        defineFinds.Add(DefineFind(uiName, uiPath, "Text"));
+                    }
+                    break;
             }
             case ObjectType.AudioSource:
 			{
-                    defineAreas.Add(string.Format ("\t[HideInInspector]private AudioSource @{0} = null;\n", uiName));
-                    defineFinds.Add(string.Format("\t\t @{0} = transform.Find({1}).GetComponent<AudioSource>();\n", uiName, "\"" + uiPath + "\""));
+                    if (NGUI)
+                    {
+                        defineAreas.Add(DefineArea("AudioSource", uiName));
+                        defineFinds.Add(DefineFind(uiName, uiPath, "AudioSource"));
+                    }
+                    else
+                    {
+                        defineAreas.Add(DefineArea("AudioSource", uiName));
+                        defineFinds.Add(DefineFind(uiName, uiPath, "AudioSource"));
+                    }
                     break;
 			}
 		case ObjectType.Button:
 			{
-                    defineAreas.Add(string.Format ("\t[HideInInspector]private Button @{0} = null;\n", uiName));
-                    defineFinds.Add(string.Format("\t\t @{0} = transform.Find({1}).GetComponent<Button>();\n", uiName, "\"" + uiPath + "\""));
+                    if (NGUI)
+                    {
+                        defineAreas.Add(DefineArea("UIButton", uiName));
+                        defineFinds.Add(DefineFind(uiName, uiPath, "UIButton"));
+                    }
+                    else
+                    {
+                        defineAreas.Add(DefineArea("Button", uiName));
+                        defineFinds.Add(DefineFind(uiName, uiPath, "Button"));
+                    }
                     break;
 			}
 		case ObjectType.EventSystem:
 			{
-                    defineAreas.Add(string.Format ("\t[HideInInspector]private EventSystem @{0} = null;\n", uiName));
-                    defineFinds.Add(string.Format("\t\t @{0} = transform.Find({1}).GetComponent<EventSystem>();\n", uiName, "\""+ uiPath + "\""));
+                    defineAreas.Add(DefineArea("EventSystem", uiName));
+                    defineFinds.Add(DefineFind(uiName, uiPath, "EventSystem"));
                     break;
 			}
 		case ObjectType.GameObject:
 			{
-                    defineAreas.Add(string.Format ("\t[HideInInspector]private GameObject @{0} = null;\n", uiName));
-                    defineFinds.Add(string.Format("\t\t @{0} = transform.Find({1}).GetComponent<GameObject>();\n", uiName, "\""+ uiPath + "\""));
+                    defineAreas.Add(DefineArea("GameObject", uiName));
+                    defineFinds.Add(DefineFind(uiName, uiPath, "GameObject"));
                     break;
 			}
 		case ObjectType.Grid:
 			{
-                    defineAreas.Add(string.Format ("\t[HideInInspector]private Grid @{0} = null;\n", uiName));
-                    defineFinds.Add(string.Format("\t\t @{0} = transform.Find({1}).GetComponent<Grid>();\n", uiName, "\""+ uiPath + "\""));
+                    if (NGUI)
+                    {
+                        defineAreas.Add(DefineArea("UIGrid", uiName));
+                        defineFinds.Add(DefineFind(uiName, uiPath, "UIGrid"));
+                    }
+                    else
+                    {
+                        defineAreas.Add(DefineArea("Grid", uiName));
+                        defineFinds.Add(DefineFind(uiName, uiPath, "Grid"));
+                    }
                     break;
 			}
 		case ObjectType.Image:
 			{
-                    defineAreas.Add(string.Format ("\t[HideInInspector]private Image @{0} = null;\n", uiName));
-                    defineFinds.Add(string.Format("\t\t @{0} = transform.Find({1}).GetComponent<Image>();\n", uiName, "\""+ uiPath + "\""));
+                    if (NGUI)
+                    {
+                        defineAreas.Add(DefineArea("UIImage", uiName));
+                        defineFinds.Add(DefineFind(uiName, uiPath, "UIImage"));
+                    }
+                    else
+                    {
+                        defineAreas.Add(DefineArea("Image", uiName));
+                        defineFinds.Add(DefineFind(uiName, uiPath, "Image"));
+                    }
                     break;
 			}
 		case ObjectType.Light:
 			{
-                    defineAreas.Add(string.Format ("\t[HideInInspector]private Light @{0} = null;\n", uiName));
-                    defineFinds.Add(string.Format("\t\t @{0} = transform.Find({1}).GetComponent<Light>();\n", uiName, "\""+ uiPath + "\""));
+                    defineAreas.Add(DefineArea("Light", uiName));
+                    defineFinds.Add(DefineFind(uiName, uiPath, "Light"));
                     break;
 			}
 		case ObjectType.Mesh:
 			{
-                    defineAreas.Add(string.Format ("\t[HideInInspector]private Mesh @{0} = null;\n", uiName));
-                    defineFinds.Add(string.Format("\t\t @{0} = transform.Find({1}).GetComponent<Mesh>();\n", uiName, "\""+ uiPath + "\""));
+                    defineAreas.Add(DefineArea("Mesh", uiName));
+                    defineFinds.Add(DefineFind(uiName, uiPath, "Mesh"));
                     break;
 			}
 		case ObjectType.Panel:
 			{
-                    defineAreas.Add(string.Format ("\t[HideInInspector]private Panel @{0} = null;\n", uiName));
-                    defineFinds.Add(string.Format("\t\t @{0} = transform.Find({1}).GetComponent<Panel>();\n", uiName, "\""+ uiPath + "\""));
+                    if (NGUI)
+                    {
+                        defineAreas.Add(DefineArea("UIPanel", uiName));
+                        defineFinds.Add(DefineFind(uiName, uiPath, "UIPanel"));
+                    }
+                    else
+                    {
+                        defineAreas.Add(DefineArea("Panel", uiName));
+                        defineFinds.Add(DefineFind(uiName, uiPath, "Panel"));
+                    }
                     break;
 			}
 		case ObjectType.ParticleSystem:
 			{
-                    defineAreas.Add(string.Format ("\t[HideInInspector]private ParticleSystem @{0} = null;\n", uiName));
-                    defineFinds.Add(string.Format("\t\t @{0} = transform.Find({1}).GetComponent<ParticleSystem>();\n", uiName, "\"" + uiPath + "\""));
+                    defineAreas.Add(DefineArea("ParticleSystem", uiName));
+                    defineFinds.Add(DefineFind(uiName, uiPath, "ParticleSystem"));
                     break;
 			}
 		case ObjectType.RawImage:
 			{
-                    defineAreas.Add(string.Format ("\t[HideInInspector]private RawImage @{0} = null;\n", uiName));
-                    defineFinds.Add(string.Format("\t\t @{0} = transform.Find({1}).GetComponent<RawImage>();\n", uiName, "\""+ uiPath + "\""));
+                    defineAreas.Add(DefineArea("RawImage", uiName));
+                    defineFinds.Add(DefineFind(uiName, uiPath, "RawImage"));
                     break;
 			}
 		case ObjectType.Rigidbody:
 			{
-                    defineAreas.Add(string.Format ("\t[HideInInspector]private Rigidbody @{0} = null;\n", uiName));
-                    defineFinds.Add(string.Format("\t\t @{0} = transform.Find({1}).GetComponent<Rigidbody>();\n", uiName, "\""+ uiPath + "\""));
+                    defineAreas.Add(DefineArea("Rigidbody", uiName));
+                    defineFinds.Add(DefineFind(uiName, uiPath, "Rigidbody"));
                     break;
 			}
 		case ObjectType.ScrollView:
 			{
-                    defineAreas.Add(string.Format ("\t[HideInInspector]private ScrollView @{0} = null;\n", uiName));
-                    defineFinds.Add(string.Format("\t\t @{0} = transform.Find({1}).GetComponent<ScrollView>();\n", uiName, "\""+ uiPath + "\""));
+                    if (NGUI)
+                    {
+                        defineAreas.Add(DefineArea("UIScrollView", uiName));
+                        defineFinds.Add(DefineFind(uiName, uiPath, "UIScrollView"));
+                    }
+                    else
+                    {
+                        defineAreas.Add(DefineArea("ScrollView", uiName));
+                        defineFinds.Add(DefineFind(uiName, uiPath, "ScrollView"));
+                    }
                     break;
 			}
 		case ObjectType.Sprite:
 			{
-                    defineAreas.Add(string.Format ("\t[HideInInspector]private Sprite @{0} = null;\n", uiName));
-                    defineFinds.Add(string.Format("\t\t @{0} = transform.Find({1}).GetComponent<Sprite>();\n", uiName, "\"" + uiPath + "\""));
+                    if (NGUI)
+                    {
+                        defineAreas.Add(DefineArea("UISprite", uiName));
+                        defineFinds.Add(DefineFind(uiName, uiPath, "UISprite"));
+                    }
+                    else
+                    {
+                        defineAreas.Add(DefineArea("Sprite", uiName));
+                        defineFinds.Add(DefineFind(uiName, uiPath, "Sprite"));
+                    }
                     break;
-			}
+                }
 		case ObjectType.TextMesh:
 			{
-                    defineAreas.Add(string.Format ("\t[HideInInspector]private TextMesh @{0} = null;\n", uiName));
-                    defineFinds.Add(string.Format("\t\t @{0} = transform.Find({1}).GetComponent<TextMesh>();\n", uiName, "\""+ uiPath + "\""));
+                    defineAreas.Add(DefineArea("TextMesh", uiName));
+                    defineFinds.Add(DefineFind(uiName, uiPath, "TextMesh"));
                     break;
 			}
 		case ObjectType.Texture:
 			{
-                    defineAreas.Add(string.Format ("\t[HideInInspector]private Texture @{0} = null;\n", uiName));
-                    defineFinds.Add(string.Format("\t\t @{0} = transform.Find({1}).GetComponent<Texture>();\n", uiName, "\""+ uiPath + "\""));
+                    if (NGUI)
+                    {
+                        defineAreas.Add(DefineArea("UITexture", uiName));
+                        defineFinds.Add(DefineFind(uiName, uiPath, "UITexture"));
+                    }
+                    else
+                    {
+                        defineAreas.Add(DefineArea("Texture", uiName));
+                        defineFinds.Add(DefineFind(uiName, uiPath, "Texture"));
+                    }
                     break;
 			}
 		case ObjectType.Texture2D:
 			{
-                    defineAreas.Add(string.Format ("\t[HideInInspector]private Texture2D @{0} = null;\n", uiName));
-                    defineFinds.Add(string.Format("\t\t @{0} = transform.Find({1}).GetComponent<Texture2D>();\n", uiName, "\""+ uiPath + "\""));
+                    if (NGUI)
+                    {
+                        defineAreas.Add(DefineArea("UITexture2D", uiName));
+                        defineFinds.Add(DefineFind(uiName, uiPath, "UITexture2D"));
+                    }
+                    else
+                    {
+                        defineAreas.Add(DefineArea("Texture2D", uiName));
+                        defineFinds.Add(DefineFind(uiName, uiPath, "Texture2D"));
+                    }
                     break;
 			}
 		case ObjectType.Toggle:
 			{
-                    defineAreas.Add(string.Format ("\t[HideInInspector]private Toggle @{0} = null;\n", uiName));
-                    defineFinds.Add(string.Format("\t\t @{0} = transform.Find({1}).GetComponent<Toggle>();\n", uiName, "\""+ uiPath + "\""));
+                    if (NGUI)
+                    {
+                        defineAreas.Add(DefineArea("UIToggle", uiName));
+                        defineFinds.Add(DefineFind(uiName, uiPath, "UIToggle"));
+                    }
+                    else
+                    {
+                        defineAreas.Add(DefineArea("Toggle", uiName));
+                        defineFinds.Add(DefineFind(uiName, uiPath, "Toggle"));
+                    }
                     break;
 			}
 		case ObjectType.Transform:
 			{
-                    defineAreas.Add(string.Format ("\t[HideInInspector]private Transform @{0} = null;\n", uiName));
-                    defineFinds.Add(string.Format("\t\t @{0} = transform.Find({1}).GetComponent<Transform>();\n", uiName, "\""+ uiPath + "\""));
+                    defineAreas.Add(DefineArea("Transform", uiName));
+                    defineFinds.Add(DefineFind(uiName, uiPath, "Transform"));
                     break;
 			}
 		default:
