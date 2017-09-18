@@ -6,7 +6,7 @@ using UnityEditor;
 
 public class NavyUIHelper : EditorWindow {
 
-	[MenuItem("Window/NavyUIHelper")]  
+	[MenuItem("Window/NavyUIHelper  %r")]  
 	private static void GenerateUI()
 	{
 		foreach (GameObject obj in Object.FindObjectsOfType(typeof(GameObject))) {

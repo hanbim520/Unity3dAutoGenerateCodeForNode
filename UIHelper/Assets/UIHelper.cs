@@ -375,7 +375,77 @@ public class UIHelper : MonoBehaviour
                     defineFinds.Add(DefineFind(uiName, uiPath, "Transform"));
                     break;
 			}
-		default:
+        case ObjectType.Camera:
+            {
+                    if (NGUI)
+                    {
+                        defineAreas.Add(DefineArea("UICamera", uiName));
+                        defineFinds.Add(DefineFind(uiName, uiPath, "UICamera"));
+                    }
+                    else
+                    {
+                        defineAreas.Add(DefineArea("Camera", uiName));
+                        defineFinds.Add(DefineFind(uiName, uiPath, "Camera"));
+                    }
+                    break;
+            }
+        case ObjectType.Label:
+            {
+                if (NGUI)
+                {
+                    defineAreas.Add(DefineArea("UILabel", uiName));
+                    defineFinds.Add(DefineFind(uiName, uiPath, "UILabel"));
+                }
+                else
+                {
+//                     defineAreas.Add(DefineArea("Label", uiName));
+//                     defineFinds.Add(DefineFind(uiName, uiPath, "Label"));
+                }
+                break;
+            }
+        case ObjectType.Font:
+            {
+                if (NGUI)
+                {
+                    defineAreas.Add(DefineArea("UIFont", uiName));
+                    defineFinds.Add(DefineFind(uiName, uiPath, "UIFont"));
+                }
+                else
+                {
+                    //                     defineAreas.Add(DefineArea("Label", uiName));
+                    //                     defineFinds.Add(DefineFind(uiName, uiPath, "Label"));
+                }
+                break;
+            }
+        case ObjectType.Anchor:
+            {
+                if (NGUI)
+                {
+                    defineAreas.Add(DefineArea("UIAnchor", uiName));
+                    defineFinds.Add(DefineFind(uiName, uiPath, "UIAnchor"));
+                }
+                else
+                {
+                    //                     defineAreas.Add(DefineArea("Label", uiName));
+                    //                     defineFinds.Add(DefineFind(uiName, uiPath, "Label"));
+                }
+                break;
+            }
+        case ObjectType.UI2DSprite:
+            {
+                if (NGUI)
+                {
+                    defineAreas.Add(DefineArea("UI2DSprite", uiName));
+                    defineFinds.Add(DefineFind(uiName, uiPath, "UI2DSprite"));
+                }
+                else
+                {
+                    //                     defineAreas.Add(DefineArea("Label", uiName));
+                    //                     defineFinds.Add(DefineFind(uiName, uiPath, "Label"));
+                }
+                break;
+            }
+            default:
 			break;
 		}
        
@@ -539,6 +609,10 @@ public class ObjectType
 	public const string Mesh = "mesh";
 	public const string Rigidbody = "rigidbody";
     public const string Text = "text";
-
+    public const string Camera = "camera";
+    public const string Label = "label";
+    public const string Font = "font";
+    public const string Anchor = "anchor";
+    public const string UI2DSprite = "UI2DSprite";
 }
 #endif
