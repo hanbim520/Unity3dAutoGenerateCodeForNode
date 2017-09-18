@@ -43,32 +43,32 @@ public class UIHelper : MonoBehaviour
     {
         preTrans.Clear();
 		TypeList.Clear ();
-		TypeList.Add (ObjectType.AudioSettings);
-		TypeList.Add (ObjectType.AudioSource);
-		TypeList.Add (ObjectType.Button);
-		TypeList.Add (ObjectType.EventSystem);
-		TypeList.Add (ObjectType.GameObject);
-		TypeList.Add (ObjectType.Grid);
-		TypeList.Add (ObjectType.Image);
-		TypeList.Add (ObjectType.Light);
-		TypeList.Add (ObjectType.Mesh);
-		TypeList.Add (ObjectType.Panel);
-		TypeList.Add (ObjectType.ParticleSystem);
-		TypeList.Add (ObjectType.RawImage);
-		TypeList.Add (ObjectType.Rigidbody);
-		TypeList.Add (ObjectType.ScrollView);
-		TypeList.Add (ObjectType.Sprite);
-		TypeList.Add (ObjectType.TextMesh);
-		TypeList.Add (ObjectType.Texture);
-		TypeList.Add (ObjectType.Texture2D);
-		TypeList.Add (ObjectType.Toggle);
-		TypeList.Add (ObjectType.Transform);
-        TypeList.Add(ObjectType.Text);
-        TypeList.Add(ObjectType.UI2DSprite);
-        TypeList.Add(ObjectType.Font);
-        TypeList.Add(ObjectType.Camera);
-        TypeList.Add(ObjectType.Label);
-        TypeList.Add(ObjectType.Anchor);
+		TypeList.Add (UIType.ObjectType.AudioSettings);
+		TypeList.Add (UIType.ObjectType.AudioSource);
+		TypeList.Add (UIType.ObjectType.Button);
+		TypeList.Add (UIType.ObjectType.EventSystem);
+		TypeList.Add (UIType.ObjectType.GameObject);
+		TypeList.Add (UIType.ObjectType.Grid);
+		TypeList.Add (UIType.ObjectType.Image);
+		TypeList.Add (UIType.ObjectType.Light);
+		TypeList.Add (UIType.ObjectType.Mesh);
+		TypeList.Add (UIType.ObjectType.Panel);
+		TypeList.Add (UIType.ObjectType.ParticleSystem);
+		TypeList.Add (UIType.ObjectType.RawImage);
+		TypeList.Add (UIType.ObjectType.Rigidbody);
+		TypeList.Add (UIType.ObjectType.ScrollView);
+		TypeList.Add (UIType.ObjectType.Sprite);
+		TypeList.Add (UIType.ObjectType.TextMesh);
+		TypeList.Add (UIType.ObjectType.Texture);
+		TypeList.Add (UIType.ObjectType.Texture2D);
+		TypeList.Add (UIType.ObjectType.Toggle);
+		TypeList.Add (UIType.ObjectType.Transform);
+        TypeList.Add(UIType.ObjectType.Text);
+        TypeList.Add(UIType.ObjectType.UI2DSprite);
+        TypeList.Add(UIType.ObjectType.Font);
+        TypeList.Add(UIType.ObjectType.Camera);
+        TypeList.Add(UIType.ObjectType.Label);
+        TypeList.Add(UIType.ObjectType.Anchor);
 
         string selfName = transform.name;
 		MatchCollection m = Regex.Matches(selfName,flag,RegexOptions.IgnoreCase);
@@ -161,7 +161,7 @@ public class UIHelper : MonoBehaviour
 		if (m.Count <= 0)
 			return;
 		switch (m[0].Value.ToLower()) {
-		case ObjectType.AudioSettings:
+		case UIType.ObjectType.AudioSettings:
 			{
                     if(NGUI)
                     {
@@ -177,7 +177,7 @@ public class UIHelper : MonoBehaviour
 
                 break;
 			}
-        case ObjectType.Text:
+        case UIType.ObjectType.Text:
             {
                     if (NGUI)
                     {
@@ -191,7 +191,7 @@ public class UIHelper : MonoBehaviour
                     }
                     break;
             }
-            case ObjectType.AudioSource:
+            case UIType.ObjectType.AudioSource:
 			{
                     if (NGUI)
                     {
@@ -205,7 +205,7 @@ public class UIHelper : MonoBehaviour
                     }
                     break;
 			}
-		case ObjectType.Button:
+		case UIType.ObjectType.Button:
 			{
                     if (NGUI)
                     {
@@ -219,19 +219,19 @@ public class UIHelper : MonoBehaviour
                     }
                     break;
 			}
-		case ObjectType.EventSystem:
+		case UIType.ObjectType.EventSystem:
 			{
                     defineAreas.Add(DefineArea("EventSystem", uiName));
                     defineFinds.Add(DefineFind(uiName, uiPath, "EventSystem"));
                     break;
 			}
-		case ObjectType.GameObject:
+		case UIType.ObjectType.GameObject:
 			{
                     defineAreas.Add(DefineArea("GameObject", uiName));
                     defineFinds.Add(DefineFind(uiName, uiPath, "GameObject"));
                     break;
 			}
-		case ObjectType.Grid:
+		case UIType.ObjectType.Grid:
 			{
                     if (NGUI)
                     {
@@ -245,7 +245,7 @@ public class UIHelper : MonoBehaviour
                     }
                     break;
 			}
-		case ObjectType.Image:
+		case UIType.ObjectType.Image:
 			{
                     if (NGUI)
                     {
@@ -259,19 +259,19 @@ public class UIHelper : MonoBehaviour
                     }
                     break;
 			}
-		case ObjectType.Light:
+		case UIType.ObjectType.Light:
 			{
                     defineAreas.Add(DefineArea("Light", uiName));
                     defineFinds.Add(DefineFind(uiName, uiPath, "Light"));
                     break;
 			}
-		case ObjectType.Mesh:
+		case UIType.ObjectType.Mesh:
 			{
                     defineAreas.Add(DefineArea("Mesh", uiName));
                     defineFinds.Add(DefineFind(uiName, uiPath, "Mesh"));
                     break;
 			}
-		case ObjectType.Panel:
+		case UIType.ObjectType.Panel:
 			{
                     if (NGUI)
                     {
@@ -285,25 +285,25 @@ public class UIHelper : MonoBehaviour
                     }
                     break;
 			}
-		case ObjectType.ParticleSystem:
+		case UIType.ObjectType.ParticleSystem:
 			{
                     defineAreas.Add(DefineArea("ParticleSystem", uiName));
                     defineFinds.Add(DefineFind(uiName, uiPath, "ParticleSystem"));
                     break;
 			}
-		case ObjectType.RawImage:
+		case UIType.ObjectType.RawImage:
 			{
                     defineAreas.Add(DefineArea("RawImage", uiName));
                     defineFinds.Add(DefineFind(uiName, uiPath, "RawImage"));
                     break;
 			}
-		case ObjectType.Rigidbody:
+		case UIType.ObjectType.Rigidbody:
 			{
                     defineAreas.Add(DefineArea("Rigidbody", uiName));
                     defineFinds.Add(DefineFind(uiName, uiPath, "Rigidbody"));
                     break;
 			}
-		case ObjectType.ScrollView:
+		case UIType.ObjectType.ScrollView:
 			{
                     if (NGUI)
                     {
@@ -317,7 +317,7 @@ public class UIHelper : MonoBehaviour
                     }
                     break;
 			}
-		case ObjectType.Sprite:
+		case UIType.ObjectType.Sprite:
 			{
                     if (NGUI)
                     {
@@ -331,13 +331,13 @@ public class UIHelper : MonoBehaviour
                     }
                     break;
                 }
-		case ObjectType.TextMesh:
+		case UIType.ObjectType.TextMesh:
 			{
                     defineAreas.Add(DefineArea("TextMesh", uiName));
                     defineFinds.Add(DefineFind(uiName, uiPath, "TextMesh"));
                     break;
 			}
-		case ObjectType.Texture:
+		case UIType.ObjectType.Texture:
 			{
                     if (NGUI)
                     {
@@ -351,7 +351,7 @@ public class UIHelper : MonoBehaviour
                     }
                     break;
 			}
-		case ObjectType.Texture2D:
+		case UIType.ObjectType.Texture2D:
 			{
                     if (NGUI)
                     {
@@ -365,7 +365,7 @@ public class UIHelper : MonoBehaviour
                     }
                     break;
 			}
-		case ObjectType.Toggle:
+		case UIType.ObjectType.Toggle:
 			{
                     if (NGUI)
                     {
@@ -379,13 +379,13 @@ public class UIHelper : MonoBehaviour
                     }
                     break;
 			}
-		case ObjectType.Transform:
+		case UIType.ObjectType.Transform:
 			{
                     defineAreas.Add(DefineArea("Transform", uiName));
                     defineFinds.Add(DefineFind(uiName, uiPath, "Transform"));
                     break;
 			}
-        case ObjectType.Camera:
+        case UIType.ObjectType.Camera:
             {
                     if (NGUI)
                     {
@@ -399,7 +399,7 @@ public class UIHelper : MonoBehaviour
                     }
                     break;
             }
-        case ObjectType.Label:
+        case UIType.ObjectType.Label:
             {
                 if (NGUI)
                 {
@@ -413,7 +413,7 @@ public class UIHelper : MonoBehaviour
                 }
                 break;
             }
-        case ObjectType.Font:
+        case UIType.ObjectType.Font:
             {
                 if (NGUI)
                 {
@@ -427,7 +427,7 @@ public class UIHelper : MonoBehaviour
                 }
                 break;
             }
-        case ObjectType.Anchor:
+        case UIType.ObjectType.Anchor:
             {
                 if (NGUI)
                 {
@@ -441,7 +441,7 @@ public class UIHelper : MonoBehaviour
                 }
                 break;
             }
-        case ObjectType.UI2DSprite:
+        case UIType.ObjectType.UI2DSprite:
             {
                 if (NGUI)
                 {
@@ -576,7 +576,7 @@ public class UIHelper : MonoBehaviour
 		sw.Close();
 		fs.Close();
 
-        Debug.Log("Code generation successful")
+        Debug.Log("Code generation successful");
 	}
 }
 
@@ -598,33 +598,37 @@ public class UIHelper : MonoBehaviour
 //    }
 //}
 
-public class ObjectType
+namespace UIType
 {
-	public const string Button = "button";
-	public const string Sprite = "sprite";
-	public const string Texture = "texture";
-	public const string Image ="image";
-	public const string Toggle = "toggle";
-	public const string ScrollView = "scrollview";
-	public const string Grid = "grid";
-	public const string Panel = "panel";
-	public const string EventSystem = "eventsystem";
-	public const string ParticleSystem = "particlesystem";
-	public const string RawImage = "rawimage";
-	public const string Light = "light";
-	public const string AudioSource = "audiosource";
-	public const string AudioSettings = "audiosettings";
-	public const string Texture2D = "texture2d";
-	public const string TextMesh = "textmesh";
-	public const string Transform = "transform";
-	public const string GameObject = "gameobject";
-	public const string Mesh = "mesh";
-	public const string Rigidbody = "rigidbody";
-    public const string Text = "text";
-    public const string Camera = "camera";
-    public const string Label = "label";
-    public const string Font = "font";
-    public const string Anchor = "anchor";
-    public const string UI2DSprite = "UI2DSprite";
+    public class ObjectType
+    {
+        public const string Button = "button";
+        public const string Sprite = "sprite";
+        public const string Texture = "texture";
+        public const string Image = "image";
+        public const string Toggle = "toggle";
+        public const string ScrollView = "scrollview";
+        public const string Grid = "grid";
+        public const string Panel = "panel";
+        public const string EventSystem = "eventsystem";
+        public const string ParticleSystem = "particlesystem";
+        public const string RawImage = "rawimage";
+        public const string Light = "light";
+        public const string AudioSource = "audiosource";
+        public const string AudioSettings = "audiosettings";
+        public const string Texture2D = "texture2d";
+        public const string TextMesh = "textmesh";
+        public const string Transform = "transform";
+        public const string GameObject = "gameobject";
+        public const string Mesh = "mesh";
+        public const string Rigidbody = "rigidbody";
+        public const string Text = "text";
+        public const string Camera = "camera";
+        public const string Label = "label";
+        public const string Font = "font";
+        public const string Anchor = "anchor";
+        public const string UI2DSprite = "UI2DSprite";
+    }
 }
+
 #endif
