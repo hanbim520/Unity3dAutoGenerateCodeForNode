@@ -64,8 +64,13 @@ public class UIHelper : MonoBehaviour
 		TypeList.Add (ObjectType.Toggle);
 		TypeList.Add (ObjectType.Transform);
         TypeList.Add(ObjectType.Text);
+        TypeList.Add(ObjectType.UI2DSprite);
+        TypeList.Add(ObjectType.Font);
+        TypeList.Add(ObjectType.Camera);
+        TypeList.Add(ObjectType.Label);
+        TypeList.Add(ObjectType.Anchor);
 
-		string selfName = transform.name;
+        string selfName = transform.name;
 		MatchCollection m = Regex.Matches(selfName,flag,RegexOptions.IgnoreCase);
 		if (m.Count > 0) {
 			selfName = System.Text.RegularExpressions.Regex.Replace (selfName, flag, "");
