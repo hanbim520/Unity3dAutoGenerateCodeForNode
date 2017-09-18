@@ -130,7 +130,7 @@ public class UIHelper : MonoBehaviour
         }
     }
 
-	private void Serizerize(string uiName, string path, string ty,ref string result)
+	private void Serizerize(string uiName, string path, string ty)
 	{
         int idx = path.IndexOf("/");
         string uiPath = path.Substring(idx + 1, path.Length - idx -1);
@@ -285,20 +285,23 @@ public class UIHelper : MonoBehaviour
 
 			foreach(string ty in TypeList)
 			{
-				Serizerize (key, pair.Value, ty, ref bodyStr);
+				Serizerize (key, pair.Value, ty);
 			}
 
 		}
+        bodyStr += "\n\t#region Init";
+        
         string func = "\tprivate void InitUI()\n\t{\t\t";
         foreach (var v in defineAreas)
         {
             bodyStr += v;
         }
+        bodyStr += "\n";
         bodyStr += func;
         foreach (var v in defineFinds)
             bodyStr += string.Format("{0}", v);
         bodyStr +=  "\n\t}";
-
+        bodyStr += "\n\t#endregion";
         //引用
         string usingStr = "using System.Collections;\nusing System.Collections.Generic;\nusing UnityEngine;\nusing UnityEngine.UI;\n\n\n";
 

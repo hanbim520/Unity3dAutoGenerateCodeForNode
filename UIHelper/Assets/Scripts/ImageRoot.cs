@@ -6,10 +6,12 @@ using UnityEngine.UI;
 
 public class ImageRoot : MonoBehaviour
 {	
+	#region Init
 	[HideInInspector]private Image @Image01 = null;
 	[HideInInspector]private Image @IMAGEYYIGI = null;
 	[HideInInspector]private Image @image = null;
 	[HideInInspector]private Text @TextName = null;
+
 	private void InitUI()
 	{		
 		 @Image01 = transform.Find("Image0/@Image01/").GetComponent<Image>();
@@ -18,4 +20,5 @@ public class ImageRoot : MonoBehaviour
 		 @TextName = transform.Find("Image0/@TextName/").GetComponent<Text>(); 
 
 	}
+	#endregion
 }
