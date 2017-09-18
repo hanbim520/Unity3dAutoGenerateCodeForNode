@@ -142,7 +142,7 @@ public class UIHelper : MonoBehaviour
     {
         return string.Format("\t\t @{0} = transform.Find({1}).GetComponent<{2}>(); \n", param, "\"" + path + "\"", type);
     }
-    private void Serizerize(string uiName, string path, string ty)
+    private void Serialized(string uiName, string path, string ty)
 	{
         int idx = path.IndexOf("/");
         string uiPath = path.Substring(idx + 1, path.Length - idx -1);
@@ -394,7 +394,7 @@ public class UIHelper : MonoBehaviour
 
 			foreach(string ty in TypeList)
 			{
-				Serizerize (key, pair.Value, ty);
+                Serialized(key, pair.Value, ty);
 			}
 
 		}
