@@ -185,8 +185,9 @@ public class UIHelper : MonoBehaviour
             {
                     if (NGUI)
                     {
-                        defineAreas.Add(DefineArea("UIText", uiName));
-                        defineFinds.Add(DefineFind(uiName, uiPath, "UIText"));
+                        //                         defineAreas.Add(DefineArea("UIText", uiName));
+                        //                         defineFinds.Add(DefineFind(uiName, uiPath, "UIText"));
+                        Debug.LogError("ngui has no type " + uiName);
                     }
                     else
                     {
@@ -253,8 +254,9 @@ public class UIHelper : MonoBehaviour
 			{
                     if (NGUI)
                     {
-                        defineAreas.Add(DefineArea("UIImage", uiName));
-                        defineFinds.Add(DefineFind(uiName, uiPath, "UIImage"));
+                        Debug.LogError("ngui has no type " + uiName);
+//                         defineAreas.Add(DefineArea("UIImage", uiName));
+//                         defineFinds.Add(DefineFind(uiName, uiPath, "UIImage"));
                     }
                     else
                     {
@@ -412,9 +414,10 @@ public class UIHelper : MonoBehaviour
                 }
                 else
                 {
-//                     defineAreas.Add(DefineArea("Label", uiName));
-//                     defineFinds.Add(DefineFind(uiName, uiPath, "Label"));
-                }
+                        //                     defineAreas.Add(DefineArea("Label", uiName));
+                        //                     defineFinds.Add(DefineFind(uiName, uiPath, "Label"));
+                        Debug.LogError("ugui has no type " + uiName);
+                    }
                 break;
             }
         case UIType.ObjectType.Font:
@@ -426,9 +429,10 @@ public class UIHelper : MonoBehaviour
                 }
                 else
                 {
-                    //                     defineAreas.Add(DefineArea("Label", uiName));
-                    //                     defineFinds.Add(DefineFind(uiName, uiPath, "Label"));
-                }
+                    defineAreas.Add(DefineArea("Font", uiName));
+                    defineFinds.Add(DefineFind(uiName, uiPath, "Font"));
+                        
+                    }
                 break;
             }
         case UIType.ObjectType.Anchor:
@@ -440,9 +444,10 @@ public class UIHelper : MonoBehaviour
                 }
                 else
                 {
-                    //                     defineAreas.Add(DefineArea("Label", uiName));
-                    //                     defineFinds.Add(DefineFind(uiName, uiPath, "Label"));
-                }
+                        //                     defineAreas.Add(DefineArea("Label", uiName));
+                        //                     defineFinds.Add(DefineFind(uiName, uiPath, "Label"));
+                        Debug.LogError("ugui has no type " + uiName);
+                    }
                 break;
             }
         case UIType.ObjectType.UI2DSprite:
@@ -454,9 +459,10 @@ public class UIHelper : MonoBehaviour
                 }
                 else
                 {
-                    //                     defineAreas.Add(DefineArea("Label", uiName));
-                    //                     defineFinds.Add(DefineFind(uiName, uiPath, "Label"));
-                }
+                        //                     defineAreas.Add(DefineArea("Label", uiName));
+                        //                     defineFinds.Add(DefineFind(uiName, uiPath, "Label"));
+                        Debug.LogError("ugui has no type " + uiName);
+                    }
                 break;
             }
         case UIType.ObjectType.InputField:
@@ -496,8 +502,9 @@ public class UIHelper : MonoBehaviour
                     }
                     else
                     {
-//                         defineAreas.Add(DefineArea("Slider", uiName));
-//                         defineFinds.Add(DefineFind(uiName, uiPath, "Slider"));
+                        //                         defineAreas.Add(DefineArea("Slider", uiName));
+                        //                         defineFinds.Add(DefineFind(uiName, uiPath, "Slider"));
+                        Debug.LogError("ugui has no type " + uiName);
                     }
                     break;
                 }
@@ -510,8 +517,8 @@ public class UIHelper : MonoBehaviour
                     }
                     else
                     {
-                        defineAreas.Add(DefineArea("ScrollBar", uiName));
-                        defineFinds.Add(DefineFind(uiName, uiPath, "ScrollBar"));
+                        defineAreas.Add(DefineArea("Scrollbar", uiName));
+                        defineFinds.Add(DefineFind(uiName, uiPath, "Scrollbar"));
                     }
                     break;
                 }
