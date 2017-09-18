@@ -38,14 +38,6 @@ public class Image10 : WindowBase
 	}
 	#endregion
 
-	#region Hide 
-	public override void Hide()
-	{		
-		base.Hide();
-
-	}
-	#endregion
-
 	#region Destroy 
 	public override void Destroy()
 	{		

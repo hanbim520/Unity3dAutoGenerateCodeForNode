@@ -589,16 +589,6 @@ public class UIHelper : MonoBehaviour
         bodyStr += "\n\t#endregion\n";
         /*----------------override Close end----------------*/
 
-        /*----------------override Hide----------------*/
-        bodyStr += "\n\t#region Hide \n";
-        func = "\tpublic override void Hide()\n\t{\t\t\n\t\tbase.Hide();\n";
-        bodyStr += func;
-
-        bodyStr += "\n\t}";
-        bodyStr += "\n\t#endregion\n";
-        /*----------------override Hide end----------------*/
-
-
         /*----------------override Destroy----------------*/
         bodyStr += "\n\t#region Destroy \n";
         func = "\tpublic override void Destroy()\n\t{\t\t\n\t\tbase.Destroy();\n";
