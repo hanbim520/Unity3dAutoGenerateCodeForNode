@@ -31,8 +31,11 @@ public class UIHelper : MonoBehaviour
     [SerializeField]
     public string parentName = "MonoBehaviour";
 
-    private string defineArea = "\n";
-    private string defineFind = "\n";
+//     private string defineArea = "\n";
+//     private string defineFind = "\n";
+
+    private List<string> defineAreas = new List<string>();
+    private List<string> defineFinds = new List<string>();
 
     public void GenerateUI() 
     {
@@ -138,129 +141,129 @@ public class UIHelper : MonoBehaviour
 		switch (m[0].Value.ToLower()) {
 		case ObjectType.AudioSettings:
 			{
-                    defineArea += string.Format ("\t[HideInInspector]private AudioSettings @{0} = null;\n", uiName);
-                    defineFind += string.Format("\t\t @{0} = transform.Find({1}).GetComponent<AudioSettings>(); \n", uiName, "\"" + uiPath + "\"");
+                    defineAreas.Add(string.Format ("\t[HideInInspector]private AudioSettings @{0} = null;\n", uiName));
+                    defineFinds.Add(string.Format("\t\t @{0} = transform.Find({1}).GetComponent<AudioSettings>(); \n", uiName, "\"" + uiPath + "\""));
 
                 break;
 			}
         case ObjectType.Text:
             {
-                defineArea += string.Format("\t[HideInInspector]private Text @{0} = null;\n", uiName);
-                defineFind += string.Format("\t\t @{0} = transform.Find({1}).GetComponent<Text>(); \n", uiName, "\"" + uiPath + "\"");
+                    defineAreas.Add(string.Format("\t[HideInInspector]private Text @{0} = null;\n", uiName));
+                    defineFinds.Add(string.Format("\t\t @{0} = transform.Find({1}).GetComponent<Text>(); \n", uiName, "\"" + uiPath + "\""));
                 break;
             }
             case ObjectType.AudioSource:
 			{
-                    defineArea += string.Format ("\t[HideInInspector]private AudioSource @{0} = null;\n", uiName);
-                    defineFind += string.Format("\t\t @{0} = transform.Find({1}).GetComponent<AudioSource>();\n", uiName, "\"" + uiPath + "\"");
+                    defineAreas.Add(string.Format ("\t[HideInInspector]private AudioSource @{0} = null;\n", uiName));
+                    defineFinds.Add(string.Format("\t\t @{0} = transform.Find({1}).GetComponent<AudioSource>();\n", uiName, "\"" + uiPath + "\""));
                     break;
 			}
 		case ObjectType.Button:
 			{
-                    defineArea += string.Format ("\t[HideInInspector]private Button @{0} = null;\n", uiName);
-                    defineFind += string.Format("\t\t @{0} = transform.Find({1}).GetComponent<Button>();\n", uiName, "\"" + uiPath + "\"");
+                    defineAreas.Add(string.Format ("\t[HideInInspector]private Button @{0} = null;\n", uiName));
+                    defineFinds.Add(string.Format("\t\t @{0} = transform.Find({1}).GetComponent<Button>();\n", uiName, "\"" + uiPath + "\""));
                     break;
 			}
 		case ObjectType.EventSystem:
 			{
-                    defineArea += string.Format ("\t[HideInInspector]private EventSystem @{0} = null;\n", uiName);
-                    defineFind += string.Format("\t\t @{0} = transform.Find({1}).GetComponent<EventSystem>();\n", uiName, "\""+ uiPath + "\"");
+                    defineAreas.Add(string.Format ("\t[HideInInspector]private EventSystem @{0} = null;\n", uiName));
+                    defineFinds.Add(string.Format("\t\t @{0} = transform.Find({1}).GetComponent<EventSystem>();\n", uiName, "\""+ uiPath + "\""));
                     break;
 			}
 		case ObjectType.GameObject:
 			{
-                    defineArea += string.Format ("\t[HideInInspector]private GameObject @{0} = null;\n", uiName);
-                    defineFind += string.Format("\t\t @{0} = transform.Find({1}).GetComponent<GameObject>();\n", uiName, "\""+ uiPath + "\"");
+                    defineAreas.Add(string.Format ("\t[HideInInspector]private GameObject @{0} = null;\n", uiName));
+                    defineFinds.Add(string.Format("\t\t @{0} = transform.Find({1}).GetComponent<GameObject>();\n", uiName, "\""+ uiPath + "\""));
                     break;
 			}
 		case ObjectType.Grid:
 			{
-                    defineArea += string.Format ("\t[HideInInspector]private Grid @{0} = null;\n", uiName);
-                    defineFind += string.Format("\t\t @{0} = transform.Find({1}).GetComponent<Grid>();\n", uiName, "\""+ uiPath + "\"");
+                    defineAreas.Add(string.Format ("\t[HideInInspector]private Grid @{0} = null;\n", uiName));
+                    defineFinds.Add(string.Format("\t\t @{0} = transform.Find({1}).GetComponent<Grid>();\n", uiName, "\""+ uiPath + "\""));
                     break;
 			}
 		case ObjectType.Image:
 			{
-                    defineArea += string.Format ("\t[HideInInspector]private Image @{0} = null;\n", uiName);
-                    defineFind += string.Format("\t\t @{0} = transform.Find({1}).GetComponent<Image>();\n", uiName, "\""+ uiPath + "\"");
+                    defineAreas.Add(string.Format ("\t[HideInInspector]private Image @{0} = null;\n", uiName));
+                    defineFinds.Add(string.Format("\t\t @{0} = transform.Find({1}).GetComponent<Image>();\n", uiName, "\""+ uiPath + "\""));
                     break;
 			}
 		case ObjectType.Light:
 			{
-                    defineArea += string.Format ("\t[HideInInspector]private Light @{0} = null;\n", uiName);
-                    defineFind += string.Format("\t\t @{0} = transform.Find({1}).GetComponent<Light>();\n", uiName, "\""+ uiPath + "\"");
+                    defineAreas.Add(string.Format ("\t[HideInInspector]private Light @{0} = null;\n", uiName));
+                    defineFinds.Add(string.Format("\t\t @{0} = transform.Find({1}).GetComponent<Light>();\n", uiName, "\""+ uiPath + "\""));
                     break;
 			}
 		case ObjectType.Mesh:
 			{
-                    defineArea += string.Format ("\t[HideInInspector]private Mesh @{0} = null;\n", uiName);
-                    defineFind += string.Format("\t\t @{0} = transform.Find({1}).GetComponent<Mesh>();\n", uiName, "\""+ uiPath + "\"");
+                    defineAreas.Add(string.Format ("\t[HideInInspector]private Mesh @{0} = null;\n", uiName));
+                    defineFinds.Add(string.Format("\t\t @{0} = transform.Find({1}).GetComponent<Mesh>();\n", uiName, "\""+ uiPath + "\""));
                     break;
 			}
 		case ObjectType.Panel:
 			{
-                    defineArea += string.Format ("\t[HideInInspector]private Panel @{0} = null;\n", uiName);
-                    defineFind += string.Format("\t\t @{0} = transform.Find({1}).GetComponent<Panel>();\n", uiName, "\""+ uiPath + "\"");
+                    defineAreas.Add(string.Format ("\t[HideInInspector]private Panel @{0} = null;\n", uiName));
+                    defineFinds.Add(string.Format("\t\t @{0} = transform.Find({1}).GetComponent<Panel>();\n", uiName, "\""+ uiPath + "\""));
                     break;
 			}
 		case ObjectType.ParticleSystem:
 			{
-                    defineArea += string.Format ("\t[HideInInspector]private ParticleSystem @{0} = null;\n", uiName);
-                    defineFind += string.Format("\t\t @{0} = transform.Find({1}).GetComponent<ParticleSystem>();\n", uiName, "\"" + uiPath + "\"");
+                    defineAreas.Add(string.Format ("\t[HideInInspector]private ParticleSystem @{0} = null;\n", uiName));
+                    defineFinds.Add(string.Format("\t\t @{0} = transform.Find({1}).GetComponent<ParticleSystem>();\n", uiName, "\"" + uiPath + "\""));
                     break;
 			}
 		case ObjectType.RawImage:
 			{
-                    defineArea += string.Format ("\t[HideInInspector]private RawImage @{0} = null;\n", uiName);
-                    defineFind += string.Format("\t\t @{0} = transform.Find({1}).GetComponent<RawImage>();\n", uiName, "\""+ uiPath + "\"");
+                    defineAreas.Add(string.Format ("\t[HideInInspector]private RawImage @{0} = null;\n", uiName));
+                    defineFinds.Add(string.Format("\t\t @{0} = transform.Find({1}).GetComponent<RawImage>();\n", uiName, "\""+ uiPath + "\""));
                     break;
 			}
 		case ObjectType.Rigidbody:
-			{                   
-                    defineArea += string.Format ("\t[HideInInspector]private Rigidbody @{0} = null;\n", uiName);
-                    defineFind += string.Format("\t\t @{0} = transform.Find({1}).GetComponent<Rigidbody>();\n", uiName, "\""+ uiPath + "\"");
+			{
+                    defineAreas.Add(string.Format ("\t[HideInInspector]private Rigidbody @{0} = null;\n", uiName));
+                    defineFinds.Add(string.Format("\t\t @{0} = transform.Find({1}).GetComponent<Rigidbody>();\n", uiName, "\""+ uiPath + "\""));
                     break;
 			}
 		case ObjectType.ScrollView:
 			{
-                    defineArea += string.Format ("\t[HideInInspector]private ScrollView @{0} = null;\n", uiName);
-                    defineFind += string.Format("\t\t @{0} = transform.Find({1}).GetComponent<ScrollView>();\n", uiName, "\""+ uiPath + "\"");
+                    defineAreas.Add(string.Format ("\t[HideInInspector]private ScrollView @{0} = null;\n", uiName));
+                    defineFinds.Add(string.Format("\t\t @{0} = transform.Find({1}).GetComponent<ScrollView>();\n", uiName, "\""+ uiPath + "\""));
                     break;
 			}
 		case ObjectType.Sprite:
 			{
-                    defineArea += string.Format ("\t[HideInInspector]private Sprite @{0} = null;\n", uiName);
-                    defineFind += string.Format("\t\t @{0} = transform.Find({1}).GetComponent<Sprite>();\n", uiName, "\"" + uiPath + "\"");
+                    defineAreas.Add(string.Format ("\t[HideInInspector]private Sprite @{0} = null;\n", uiName));
+                    defineFinds.Add(string.Format("\t\t @{0} = transform.Find({1}).GetComponent<Sprite>();\n", uiName, "\"" + uiPath + "\""));
                     break;
 			}
 		case ObjectType.TextMesh:
 			{
-                    defineArea += string.Format ("\t[HideInInspector]private TextMesh @{0} = null;\n", uiName);
-                    defineFind += string.Format("\t\t @{0} = transform.Find({1}).GetComponent<TextMesh>();\n", uiName, "\""+ uiPath + "\"");
+                    defineAreas.Add(string.Format ("\t[HideInInspector]private TextMesh @{0} = null;\n", uiName));
+                    defineFinds.Add(string.Format("\t\t @{0} = transform.Find({1}).GetComponent<TextMesh>();\n", uiName, "\""+ uiPath + "\""));
                     break;
 			}
 		case ObjectType.Texture:
 			{
-                    defineArea += string.Format ("\t[HideInInspector]private Texture @{0} = null;\n", uiName);
-                    defineFind += string.Format("\t\t @{0} = transform.Find({1}).GetComponent<Texture>();\n", uiName, "\""+ uiPath + "\"");
+                    defineAreas.Add(string.Format ("\t[HideInInspector]private Texture @{0} = null;\n", uiName));
+                    defineFinds.Add(string.Format("\t\t @{0} = transform.Find({1}).GetComponent<Texture>();\n", uiName, "\""+ uiPath + "\""));
                     break;
 			}
 		case ObjectType.Texture2D:
 			{
-                    defineArea += string.Format ("\t[HideInInspector]private Texture2D @{0} = null;\n", uiName);
-                    defineFind += string.Format("\t\t @{0} = transform.Find({1}).GetComponent<Texture2D>();\n", uiName, "\""+ uiPath + "\"");
+                    defineAreas.Add(string.Format ("\t[HideInInspector]private Texture2D @{0} = null;\n", uiName));
+                    defineFinds.Add(string.Format("\t\t @{0} = transform.Find({1}).GetComponent<Texture2D>();\n", uiName, "\""+ uiPath + "\""));
                     break;
 			}
 		case ObjectType.Toggle:
 			{
-                    defineArea += string.Format ("\t[HideInInspector]private Toggle @{0} = null;\n", uiName);
-                    defineFind += string.Format("\t\t @{0} = transform.Find({1}).GetComponent<Toggle>();\n", uiName, "\""+ uiPath + "\"");
+                    defineAreas.Add(string.Format ("\t[HideInInspector]private Toggle @{0} = null;\n", uiName));
+                    defineFinds.Add(string.Format("\t\t @{0} = transform.Find({1}).GetComponent<Toggle>();\n", uiName, "\""+ uiPath + "\""));
                     break;
 			}
 		case ObjectType.Transform:
 			{
-                    defineArea += string.Format ("\t[HideInInspector]private Transform @{0} = null;\n", uiName);
-                    defineFind += string.Format("\t\t @{0} = transform.Find({1}).GetComponent<Transform>();\n", uiName, "\""+ uiPath + "\"");
+                    defineAreas.Add(string.Format ("\t[HideInInspector]private Transform @{0} = null;\n", uiName));
+                    defineFinds.Add(string.Format("\t\t @{0} = transform.Find({1}).GetComponent<Transform>();\n", uiName, "\""+ uiPath + "\""));
                     break;
 			}
 		default:
@@ -273,28 +276,36 @@ public class UIHelper : MonoBehaviour
 	private void GenerateCSharpCode()
 	{
 		bodyStr = "";
-        defineArea = "\n";
-        defineFind = "\n";
+        defineFinds.Clear();
+        defineAreas.Clear();
+        defineFinds.Add("\n");
+        defineAreas.Add("\n");
         foreach (KeyValuePair<string, string> pair in generateUIComponentDic) {
 			string key = pair.Key;
 
 			foreach(string ty in TypeList)
 			{
 				Serizerize (key, pair.Value, ty, ref bodyStr);
-//                 if (defineArea!="\n" || defineFind != "\n")
-//                     break;
 			}
 
 		}
         string func = "\tprivate void InitUI()\n\t{\t\t";
-        bodyStr = defineArea + func + string.Format("{0}", defineFind) + "\n\t}";
+        foreach (var v in defineAreas)
+        {
+            bodyStr += v;
+        }
+        bodyStr += func;
+        foreach (var v in defineFinds)
+            bodyStr += string.Format("{0}", v);
+        bodyStr +=  "\n\t}";
+
+        //引用
         string usingStr = "using System.Collections;\nusing System.Collections.Generic;\nusing UnityEngine;\nusing UnityEngine.UI;\n\n\n";
 
-
-
+        //开始整合类体
         string classView = string.Format ("{0}public class {1} : {2}\n{{\t{3}\n}}", usingStr, className, parentName, bodyStr);
 
-		Write ("C:\\Users\\admin\\Documents\\UIHelper\\Assets\\Scripts\\" + className + ".cs", classView);
+		Write (Application.dataPath + "/Scripts/" + className + ".cs", classView);
 	}
 
 	private void GenerateLuaCode()
