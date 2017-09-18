@@ -14,6 +14,7 @@ public class UIRootTest : WindowBase
 	[HideInInspector]private UIWidget m_WidgetContainer = null;
 	[HideInInspector]private UIAnchor m_AnchorTest = null;
 	[HideInInspector]private UIPanel m_Paneltest = null;
+	[HideInInspector]private UITable m_uitableTest = null;
 	[HideInInspector]private GameObject m_GameObjectTest = null;
 
 	#endregion
@@ -29,6 +30,7 @@ public class UIRootTest : WindowBase
 		m_WidgetContainer = transform.Find("ui2DSpriteHeader/@SpriteHeader/@WidgetContainer").GetComponent<UIWidget>(); 
 		m_AnchorTest = transform.Find("Container/@AnchorTest").GetComponent<UIAnchor>(); 
 		m_Paneltest = transform.Find("@Paneltest").GetComponent<UIPanel>(); 
+		m_uitableTest = transform.Find("@uitableTest").GetComponent<UITable>(); 
 		m_GameObjectTest = transform.Find("@GameObjectTest").GetComponent<GameObject>(); 
 
 	}
