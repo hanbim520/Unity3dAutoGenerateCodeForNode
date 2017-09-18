@@ -73,6 +73,7 @@ public class UIHelper : MonoBehaviour
         TypeList.Add(UIType.ObjectType.Slider);
         TypeList.Add(UIType.ObjectType.Widget);
         TypeList.Add(UIType.ObjectType.ScrollBar);
+        TypeList.Add(UIType.ObjectType.UITable);
 
         string selfName = transform.name;
 		MatchCollection m = Regex.Matches(selfName,flag,RegexOptions.IgnoreCase);
@@ -522,6 +523,19 @@ public class UIHelper : MonoBehaviour
                     }
                     break;
                 }
+            case UIType.ObjectType.UITable:
+                {
+                    if (NGUI)
+                    {
+                        defineAreas.Add(DefineArea("UITable", uiName));
+                        defineFinds.Add(DefineFind(uiName, uiPath, "UITable"));
+                    }
+                    else
+                    {
+                        Debug.LogError("ugui has no type " + uiName);
+                    }
+                    break;
+                }
             default:
 			break;
 		}
@@ -689,6 +703,7 @@ namespace UIType
         public const string Slider = "slider";
         public const string Widget = "widget";
         public const string ScrollBar = "scrollbar";
+        public const string UITable = "uitable";
     }
 }
 
