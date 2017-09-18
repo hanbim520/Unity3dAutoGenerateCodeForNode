@@ -4,7 +4,8 @@
     className 为生成的类名，默认为对象名，parentName为父类，默认为MonoBehaviour。目前只生成了C# 脚本，暂时没有生成LUA脚本。可以父节点与子节点同时挂载脚本，但是会生成两份类文件，
     父节点生成文件不包含挂载脚本的子节点的所有节点，也就是说，子节点自动截断节点。
 	可自行添加新的类型！！！
-    其他命名，请跟进C#语言命名规则。
+    其他命名，请根据C#语言命名规则。
+	支持NGUI和UGUI。
     如有bug，请提交710605420@qq.com邮箱。
 	
 ![image](https://github.com/hanbim520/Unity3dAutoGenerateCodeForNode/raw/master/Image/1.jpg)
