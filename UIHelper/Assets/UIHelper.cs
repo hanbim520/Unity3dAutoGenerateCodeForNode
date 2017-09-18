@@ -69,6 +69,7 @@ public class UIHelper : MonoBehaviour
         TypeList.Add(UIType.ObjectType.Camera);
         TypeList.Add(UIType.ObjectType.Label);
         TypeList.Add(UIType.ObjectType.Anchor);
+        TypeList.Add(UIType.ObjectType.InputField);
 
         string selfName = transform.name;
 		MatchCollection m = Regex.Matches(selfName,flag,RegexOptions.IgnoreCase);
@@ -455,6 +456,20 @@ public class UIHelper : MonoBehaviour
                 }
                 break;
             }
+        case UIType.ObjectType.InputField:
+            {
+                if (NGUI)
+                {
+                    defineAreas.Add(DefineArea("UIInput", uiName));
+                    defineFinds.Add(DefineFind(uiName, uiPath, "UIInput"));
+                }
+                else
+                {
+                    defineAreas.Add(DefineArea("InputField", uiName));
+                    defineFinds.Add(DefineFind(uiName, uiPath, "InputField"));
+                }
+                break;
+            }
             default:
 			break;
 		}
@@ -627,7 +642,8 @@ namespace UIType
         public const string Label = "label";
         public const string Font = "font";
         public const string Anchor = "anchor";
-        public const string UI2DSprite = "UI2DSprite";
+        public const string UI2DSprite = "ui2dsprite";
+        public const string InputField = "inputfield";
     }
 }
 
