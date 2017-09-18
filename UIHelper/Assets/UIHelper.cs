@@ -155,7 +155,7 @@ public class UIHelper : MonoBehaviour
     private void Serialized(string uiName, string path, string ty)
 	{
         int idx = path.IndexOf("/");
-        string uiPath = path.Substring(idx + 1, path.Length - idx -1);
+        string uiPath = path.Substring(idx + 1, path.Length - idx -2);
 
         MatchCollection m = Regex.Matches(uiName, ty, RegexOptions.IgnoreCase);
 		if (m.Count <= 0)

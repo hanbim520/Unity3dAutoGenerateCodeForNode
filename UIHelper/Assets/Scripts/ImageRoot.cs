@@ -20,10 +20,10 @@ public class ImageRoot : WindowBase
 	{		
 		base.Init();
 
-		@Image01 = transform.Find("Image0/@Image01/").GetComponent<Image>(); 
-		@IMAGEYYIGI = transform.Find("Image0/@Image01/@IMAGEYYIGI/").GetComponent<Image>(); 
-		@image = transform.Find("Image0/@Image01/@image/").GetComponent<Image>(); 
-		@TextName = transform.Find("Image0/@TextName/").GetComponent<Text>(); 
+		@Image01 = transform.Find("Image0/@Image01").GetComponent<Image>(); 
+		@IMAGEYYIGI = transform.Find("Image0/@Image01/@IMAGEYYIGI").GetComponent<Image>(); 
+		@image = transform.Find("Image0/@Image01/@image").GetComponent<Image>(); 
+		@TextName = transform.Find("Image0/@TextName").GetComponent<Text>(); 
 
 	}
 	#endregion

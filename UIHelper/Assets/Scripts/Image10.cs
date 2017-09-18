@@ -17,7 +17,7 @@ public class Image10 : WindowBase
 	{		
 		base.Init();
 
-		@Button100 = transform.Find("@Button100/").GetComponent<Button>(); 
+		@Button100 = transform.Find("@Button100").GetComponent<Button>(); 
 
 	}
 	#endregion
