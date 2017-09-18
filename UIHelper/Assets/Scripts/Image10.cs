@@ -8,7 +8,7 @@ public class Image10 : WindowBase
 {	
 	#region Define 
 
-	[HideInInspector]private Button @m_Button100 = null;
+	[HideInInspector]private Button m_Button100 = null;
 
 	#endregion
 
@@ -17,7 +17,7 @@ public class Image10 : WindowBase
 	{		
 		base.Init();
 
-		@m_Button100 = transform.Find("@Button100").GetComponent<Button>(); 
+		m_Button100 = transform.Find("@Button100").GetComponent<Button>(); 
 
 	}
 	#endregion

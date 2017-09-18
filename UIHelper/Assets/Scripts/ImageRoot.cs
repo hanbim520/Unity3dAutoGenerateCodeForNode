@@ -8,12 +8,12 @@ public class ImageRoot : WindowBase
 {	
 	#region Define 
 
-	[HideInInspector]private Image @m_Image01 = null;
-	[HideInInspector]private Image @m_IMAGEYYIGI = null;
-	[HideInInspector]private Image @m_image = null;
-	[HideInInspector]private Text @m_TextName = null;
-	[HideInInspector]private InputField @m_InputFieldTest = null;
-	[HideInInspector]private Scrollbar @m_ScrollbarTest = null;
+	[HideInInspector]private Image m_Image01 = null;
+	[HideInInspector]private Image m_IMAGEYYIGI = null;
+	[HideInInspector]private Image m_image = null;
+	[HideInInspector]private Text m_TextName = null;
+	[HideInInspector]private InputField m_InputFieldTest = null;
+	[HideInInspector]private Scrollbar m_ScrollbarTest = null;
 
 	#endregion
 
@@ -22,12 +22,12 @@ public class ImageRoot : WindowBase
 	{		
 		base.Init();
 
-		@m_Image01 = transform.Find("Image0/@Image01").GetComponent<Image>(); 
-		@m_IMAGEYYIGI = transform.Find("Image0/@Image01/@IMAGEYYIGI").GetComponent<Image>(); 
-		@m_image = transform.Find("Image0/@Image01/@image").GetComponent<Image>(); 
-		@m_TextName = transform.Find("Image0/@TextName").GetComponent<Text>(); 
-		@m_InputFieldTest = transform.Find("@InputFieldTest").GetComponent<InputField>(); 
-		@m_ScrollbarTest = transform.Find("@ScrollbarTest").GetComponent<Scrollbar>(); 
+		m_Image01 = transform.Find("Image0/@Image01").GetComponent<Image>(); 
+		m_IMAGEYYIGI = transform.Find("Image0/@Image01/@IMAGEYYIGI").GetComponent<Image>(); 
+		m_image = transform.Find("Image0/@Image01/@image").GetComponent<Image>(); 
+		m_TextName = transform.Find("Image0/@TextName").GetComponent<Text>(); 
+		m_InputFieldTest = transform.Find("@InputFieldTest").GetComponent<InputField>(); 
+		m_ScrollbarTest = transform.Find("@ScrollbarTest").GetComponent<Scrollbar>(); 
 
 	}
 	#endregion
