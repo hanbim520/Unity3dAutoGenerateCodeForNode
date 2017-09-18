@@ -70,6 +70,7 @@ public class UIHelper : MonoBehaviour
         TypeList.Add(UIType.ObjectType.Label);
         TypeList.Add(UIType.ObjectType.Anchor);
         TypeList.Add(UIType.ObjectType.InputField);
+        TypeList.Add(UIType.ObjectType.Slider);
 
         string selfName = transform.name;
 		MatchCollection m = Regex.Matches(selfName,flag,RegexOptions.IgnoreCase);
@@ -470,6 +471,20 @@ public class UIHelper : MonoBehaviour
                 }
                 break;
             }
+        case UIType.ObjectType.Slider:
+            {
+                if (NGUI)
+                {
+                    defineAreas.Add(DefineArea("UISlider", uiName));
+                    defineFinds.Add(DefineFind(uiName, uiPath, "UISlider"));
+                }
+                else
+                {
+                    defineAreas.Add(DefineArea("Slider", uiName));
+                    defineFinds.Add(DefineFind(uiName, uiPath, "Slider"));
+                }
+                break;
+            }
             default:
 			break;
 		}
@@ -644,6 +659,7 @@ namespace UIType
         public const string Anchor = "anchor";
         public const string UI2DSprite = "ui2dsprite";
         public const string InputField = "inputfield";
+        public const string Slider = "slider";
     }
 }
 
