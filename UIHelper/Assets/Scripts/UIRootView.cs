@@ -7,6 +7,7 @@ public class UIRootView : UIRootTest {
     public override void Init()
     {
         base.Init();
+        Debug.Log("Init successfully");
     }
     public override void Open()
     {
