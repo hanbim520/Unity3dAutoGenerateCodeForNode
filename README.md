@@ -8,7 +8,7 @@
 	支持NGUI和UGUI。
     如有bug，请提交Issues。
 	
-![image](https://github.com/hanbim520/Unity3dAutoGenerateCodeForNode/raw/master/Image/1.jpg)
-![image](https://github.com/hanbim520/Unity3dAutoGenerateCodeForNode/raw/master/Image/2.jpg)
+![image](https://github.com/hanbim520/Unity3dAutoGenerateCodeForNode/raw/master/Image/1.png)
+![image](https://github.com/hanbim520/Unity3dAutoGenerateCodeForNode/raw/master/Image/2.png)
 ![image](https://github.com/hanbim520/Unity3dAutoGenerateCodeForNode/raw/master/Image/3.png)
 ![image](https://github.com/hanbim520/Unity3dAutoGenerateCodeForNode/raw/master/Image/4.png)
