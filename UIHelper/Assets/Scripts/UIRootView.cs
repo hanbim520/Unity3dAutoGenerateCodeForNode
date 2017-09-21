@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class UIRootView : UIRootTest {
 
-    public override void Init()
+    public  void Init()
     {
         base.Init();
         Debug.Log("Init successfully");

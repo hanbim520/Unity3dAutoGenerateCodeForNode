@@ -545,7 +545,8 @@ public class UIHelper : MonoBehaviour
                     break;
                 }
             default:
-			break;
+                Debug.LogError("ui has no type " + uiName);
+                break;
 		}
        
 
