@@ -18,7 +18,7 @@ public class NavyUIHelper : EditorWindow {
 // 	}
 
     //添加菜单
-    [MenuItem(@"Tool/NavyUIHelper Command #&r")]
+    [MenuItem(@"Tool/NavyUIHelper #&r")]
 
     public static void GetTransforms()
     {
