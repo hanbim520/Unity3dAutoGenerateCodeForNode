@@ -26,6 +26,10 @@ public class NavyUIHelper : EditorWindow {
         //transforms是Selection类的静态字段，其返回的是选中的对象的Transform
         Transform[] transforms = Selection.transforms;
 
+        if(transforms.Length == 0)
+        {
+            Debug.Log("请选择需要生成UI类的预设或者UI根节点(在Hierachy窗口上选取)");
+        }
         //将选中的对象的postion保存在字典中
         for (int i = 0; i < transforms.Length; i++)
         {
