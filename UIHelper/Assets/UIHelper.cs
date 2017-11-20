@@ -150,7 +150,7 @@ public class UIHelper : MonoBehaviour
    
    string DefineArea (string type, string param)
    {
-       return string.Format("\t[HideInInspector]private {0} {1}{2} = null;\n", type,"m_", param);
+       return string.Format("\t[HideInInspector]protected {0} {1}{2} = null;\n", type,"m_", param);
    }
 
     string DefineFind(string param,string path, string type)

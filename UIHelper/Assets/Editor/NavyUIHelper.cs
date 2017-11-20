@@ -40,7 +40,7 @@ public class NavyUIHelper : EditorWindow {
             if (null != helper)
             {
                 helper.NGUI = true;
-                helper.className = item.name;
+                helper.className = item.name + "Base";
                 helper.parentName = "WindowBase";
                 helper.GenerateUI();
             }
