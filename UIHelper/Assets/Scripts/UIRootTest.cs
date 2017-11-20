@@ -10,6 +10,8 @@ public class UIRootTest : WindowBase
 
 	[HideInInspector]private UICamera m_CameraMain = null;
 	[HideInInspector]private UILabel m_LabelName = null;
+	[HideInInspector]private UISprite m_SpriteHeader = null;
+	[HideInInspector]private UIWidget m_WidgetContainer = null;
 	[HideInInspector]private UIAnchor m_AnchorTest = null;
 	[HideInInspector]private UIPanel m_Paneltest = null;
 	[HideInInspector]private UITable m_uitableTest = null;
@@ -20,12 +22,14 @@ public class UIRootTest : WindowBase
 	#endregion
 
 	#region Init 
-	public  override void Init()
+	public override void Init()
 	{		
 		base.Init();
 
 		m_CameraMain = transform.Find("@CameraMain").GetComponent<UICamera>(); 
 		m_LabelName = transform.Find("@LabelName").GetComponent<UILabel>(); 
+		m_SpriteHeader = transform.Find("ui2DSpriteHeader/@SpriteHeader").GetComponent<UISprite>(); 
+		m_WidgetContainer = transform.Find("ui2DSpriteHeader/@SpriteHeader/@WidgetContainer").GetComponent<UIWidget>(); 
 		m_AnchorTest = transform.Find("Container/@AnchorTest").GetComponent<UIAnchor>(); 
 		m_Paneltest = transform.Find("@Paneltest").GetComponent<UIPanel>(); 
 		m_uitableTest = transform.Find("@uitableTest").GetComponent<UITable>(); 

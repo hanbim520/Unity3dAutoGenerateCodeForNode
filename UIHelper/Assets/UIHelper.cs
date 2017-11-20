@@ -31,7 +31,7 @@ public class UIHelper : MonoBehaviour
     [SerializeField]
     public string parentName = "WindowBase";
     [SerializeField]
-    bool NGUI = false;
+    public bool NGUI = false;
 
     //     private string defineArea = "\n";
     //     private string defineFind = "\n";
