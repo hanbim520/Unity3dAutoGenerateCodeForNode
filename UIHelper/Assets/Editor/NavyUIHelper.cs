@@ -1,22 +1,28 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor;  
-
+using UnityEditor;
+using test;
 
 public class NavyUIHelper : EditorWindow {
 
-// 	[MenuItem("Window/NavyUIHelper  %r")]  
-// 	private static void GenerateUI()
-// 	{
-// 		foreach (GameObject obj in Object.FindObjectsOfType(typeof(GameObject))) {
-// 			Debug.Log (obj.name);
-// 			UIHelper helper = obj.GetComponent<UIHelper> ();
-// 			if (null != helper)
-// 				helper.GenerateUI ();
-// 		}
-// 	}
+    // 	[MenuItem("Window/NavyUIHelper  %r")]  
+    // 	private static void GenerateUI()
+    // 	{
+    // 		foreach (GameObject obj in Object.FindObjectsOfType(typeof(GameObject))) {
+    // 			Debug.Log (obj.name);
+    // 			UIHelper helper = obj.GetComponent<UIHelper> ();
+    // 			if (null != helper)
+    // 				helper.GenerateUI ();
+    // 		}
+    // 	}
 
+	[MenuItem(@"Tool/MD4  ")]  
+	private static void GenerateUI()
+	{
+        int filedID = UnityEditor.Build.Utilities.FileIDUtil.Compute(typeof(test11));
+        Debug.Log("filedId =>" + filedID.ToString());
+    }
     //添加菜单
     [MenuItem(@"Tool/NavyUIHelper #&r")]
 
