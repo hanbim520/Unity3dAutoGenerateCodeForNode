@@ -38,6 +38,7 @@ public class UIHelper : MonoBehaviour
 
     private List<string> defineAreas = new List<string>();
     private List<string> defineFinds = new List<string>();
+    private string Variables = "";
 
     public void GenerateUI() 
     {
@@ -150,6 +151,7 @@ public class UIHelper : MonoBehaviour
    
    string DefineArea (string type, string param)
    {
+        Variables += "\t\t{" + "\""+ type + "\"" + ","+"\""+param +"\"" + "},\n";
        return string.Format("\t[HideInInspector]protected {0} {1}{2} = null;\n", type,"m_", param);
    }
 
@@ -555,10 +557,12 @@ public class UIHelper : MonoBehaviour
 	private void GenerateCSharpCode()
 	{
 		bodyStr = "";
+        Variables = "\tprotected Dictionary<string, string> Variables = new Dictionary<string, string>(){\n";
         defineFinds.Clear();
         defineAreas.Clear();
         defineFinds.Add("\n");
         defineAreas.Add("\n");
+        
         foreach (KeyValuePair<string, string> pair in generateUIComponentDic) {
 			string key = pair.Key;
 
@@ -574,6 +578,7 @@ public class UIHelper : MonoBehaviour
 
 
         bodyStr += "\n\t#region Define \n";
+        bodyStr += Variables + "\t};\n";
         foreach (var v in defineAreas)
         {
             bodyStr += v;

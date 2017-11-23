@@ -7,6 +7,18 @@ using UnityEngine.UI;
 public class UIRootTestBase : WindowBase
 {	
 	#region Define 
+	protected Dictionary<string, string> Variables = new Dictionary<string, string>(){
+		{"UICamera","CameraMain"},
+		{"UILabel","LabelName"},
+		{"UISprite","SpriteHeader"},
+		{"UIWidget","WidgetContainer"},
+		{"UIAnchor","AnchorTest"},
+		{"UIPanel","Paneltest"},
+		{"UITable","uitableTest"},
+		{"GameObject","GameObjectTest"},
+		{"UIScrollView","scrollViewList"},
+		{"Transform","TransformTest"},
+	};
 
 	[HideInInspector]protected UICamera m_CameraMain = null;
 	[HideInInspector]protected UILabel m_LabelName = null;

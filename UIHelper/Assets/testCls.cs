@@ -12,6 +12,7 @@ namespace test
 {
     public class testCls : MonoBehaviour
     {
+        protected Dictionary<string, string> Variables = new Dictionary<string, string>();
         public GameObject go;
         // Use this for initialization
         void Start()
