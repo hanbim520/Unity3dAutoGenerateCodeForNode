@@ -200,6 +200,7 @@ namespace UnityEditor.Build.Utilities
             return (x << (int)n) | (x >> (32 - (int)n));
         }
     }
+
     public static class FileIDUtil
     {
         public static int Compute(Type t)
