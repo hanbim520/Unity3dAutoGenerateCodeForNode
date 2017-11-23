@@ -151,7 +151,7 @@ public class UIHelper : MonoBehaviour
    
    string DefineArea (string type, string param)
    {
-        Variables += "\t\t{" + "\""+ type + "\"" + ","+"\""+param +"\"" + "},\n";
+        Variables += "\t\t{" + "\""+ param + "\"" + ","+"\""+ type + "\"" + "},\n";
        return string.Format("\t[HideInInspector]protected {0} {1}{2} = null;\n", type,"m_", param);
    }
 

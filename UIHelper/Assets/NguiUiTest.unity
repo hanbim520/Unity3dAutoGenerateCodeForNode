@@ -1154,6 +1154,7 @@ GameObject:
   - component: {fileID: 1773041726}
   - component: {fileID: 1773041730}
   - component: {fileID: 1773041724}
+  - component: {fileID: 1773041725}
   m_Layer: 5
   m_Name: UIRootTest
   m_TagString: Untagged
@@ -1176,6 +1177,17 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1773041725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1773041723}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30fdb26d8ff20814a85332419673e87f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1773041726
 MonoBehaviour:
   m_ObjectHideFlags: 0
